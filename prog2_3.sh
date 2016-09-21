@@ -4,10 +4,7 @@ echo "Assignment #2-3, Antoine Rakotozafy, antoine.rakotozafy@gmail.com"
 echo ""
 
 #Add a line in each C files : #include <stdlib.c> to avoid the warning message when we compile them
-echo "#include <stdlib.h>" >> $1
-echo "#include <stdlib.h>" >> $2
-echo "#include <stdlib.h>" >> $3
-echo "#include <stdlib.h>" >> $4
+sed -i '1i#include <stdlib.h>' *.c
 
 #Compiler les fichiers c
 gcc $1 -o prog1 -lm
