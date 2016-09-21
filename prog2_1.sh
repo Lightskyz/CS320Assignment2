@@ -4,7 +4,7 @@ echo "Assignment #2-1, Antoine Rakotozafy, antoine.rakotozafy@gmail.com"
 echo ""
 
 #Unzip the grades and the logins files
-#gunzip $1 | unzip $2
+gunzip $1 | unzip -q $2 && rm $2
 
 #Remove the extension of the file
 grade=$(echo $1 | cut -d "." -f1)
@@ -32,3 +32,7 @@ do
   password=$( awk -v name="$nameGrade" -F ',' '$1==name { print $3 } ')
   echo $password
 done < $login
+
+#Remove the grade and login files
+rm $grade
+rm $login
